@@ -1,5 +1,6 @@
 <x-layout>
-    <x-card class="4">
+    <x-breadcrumb :links="['My Jobs' => route('employer-jobs.index'), $job->title => '#']" />
+    <x-card class="mt-4">
         <form action="{{ route('employer-jobs.update', $job) }}" method="POST">
             @csrf
             @method('PUT')

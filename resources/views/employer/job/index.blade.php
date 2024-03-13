@@ -1,6 +1,6 @@
 <x-layout>
     <x-breadcrumb :links="['MyJobs' => '#']" />
-    <div class="m-4">
+    <div class="mt-4">
         <div class="mb-4 text-right">
             <x-link-button href="{{ route('employer-jobs.create') }}">Add New </x-link-button>
         </div>

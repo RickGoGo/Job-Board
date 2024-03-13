@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\EmployerJobController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +26,7 @@ Route::get('/', function () {
 Route::get('login', [AuthController::class, 'create'])->name('login');
 Route::post('login', [AuthController::class, 'store'])->name('auth.store');
 Route::resource('jobs', JobController::class)->only(['index', 'show']);
+Route::resource('users', UserController::class)->only(['create', 'store']);
 
 Route::middleware('auth')->group(function ($group) {
     Route::delete('logout', [AuthController::class, 'destroy'])->name('logout');

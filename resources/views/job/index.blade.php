@@ -1,6 +1,6 @@
 <x-layout>
     <x-breadcrumb :links="['Jobs' => '#']" />
-    <div class="m-4">
+    <div class="mt-4">
         <x-card class="">
             <form action="{{ route('jobs.index') }}" method="GET">
                 <div class="grid grid-cols-2 gap-2">
@@ -27,7 +27,7 @@
             </form>
         </x-card>
         @forelse ($jobs as $job)
-            <x-job-card :$job class="m-4">
+            <x-job-card :$job class="mt-4">
                 <div>
                     <x-link-button :href="route('jobs.show', $job)">Show</x-link-button>
                 </div>
@@ -35,6 +35,5 @@
         @empty
             <div class="ml-10">No available job.</div>
         @endforelse
-
     </div>
 </x-layout>

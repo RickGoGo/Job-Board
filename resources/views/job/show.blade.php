@@ -1,25 +1,24 @@
 <x-layout>
     <x-breadcrumb :links="['Jobs' => route('jobs.index'), $job->title => '#']" />
-    <div class="m4">
-        <x-job-card :$job>
-            <p class="mb-4 text-slate-400">
-                {{ $job->description }}
-            </p>
-            <div class="">
-                @if (auth()->user() && auth()->user()->id === $job->employer->user_id)
-                    <div class="text-center">
-                        <p>You owned this job.</p>
-                    </div>
-                @elseif (auth()->user() && auth()->user() && !auth()->user()->can('apply', $job))
-                    <div class="text-center">
-                        <p>You already applied to this job.</p>
-                    </div>
-                @else
-                    <x-link-button :href="route('job.application.create', $job)">Apply</x-link-button>
-                @endcan
+    <x-job-card :$job class="mt-4">
+        <p class="mb-4 text-slate-400">
+            {{ $job->description }}
+        </p>
+        <div class="">
+            @if (auth()->user() && auth()->user()->id === $job->employer->user_id)
+                <div class="text-center">
+                    <p>You owned this job.</p>
+                </div>
+            @elseif (auth()->user() && auth()->user() && !auth()->user()->can('apply', $job))
+                <div class="text-center">
+                    <p>You already applied to this job.</p>
+                </div>
+            @else
+                <x-link-button :href="route('job.application.create', $job)">Apply</x-link-button>
+            @endif
         </div>
     </x-job-card>
-    <x-card>
+    <x-card class="mt-4">
         <h2 class="text-lg text-slate-700">
             More {{ $job->employer->company_name }} Jobs
         </h2>
@@ -39,5 +38,4 @@
             <p>No other jobs fromt this company.</p>
         @endforelse
     </x-card>
-</div>
 </x-layout>

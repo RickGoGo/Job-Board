@@ -1,4 +1,5 @@
 <x-layout>
+    <x-breadcrumb :links="['Login' => '#']" />
     <x-card class="m-5">
         <form action="{{ route('auth.store') }}" method="POST">
             @csrf

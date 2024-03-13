@@ -52,7 +52,7 @@
                             Applications</a>
                     </div>
 
-                    <div class="mt-4 flex items-center lg:mt-0">
+                    <div class="mt-4 flex items-center gap-x-2 lg:mt-0">
                         @auth
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
@@ -80,6 +80,11 @@
                                 class="flex items-center text-green-700 focus:outline-none dark:text-green-200"
                                 aria-label="login button">
                                 Login
+                            </a>
+                            <a href="{{ route('users.create') }}"
+                                class="flex items-center text-green-700 focus:outline-none dark:text-green-200"
+                                aria-label="register button">
+                                Register
                             </a>
                         @endauth
                     </div>
