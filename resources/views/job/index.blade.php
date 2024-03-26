@@ -4,7 +4,7 @@
         <x-card class="">
             <form action="{{ route('jobs.index') }}" method="GET">
                 <div class="grid grid-cols-2 gap-2">
-                    <x-text-input name="search" label="Search" placeholder="Serach for any text"
+                    <x-text-input name="search" label="Try Search" placeholder="Serach for any text"
                         value="{{ request('search') }}" />
                     <div class="grid grid-cols-2 gap-x-2">
                         <x-text-input name="salary_from" label="Salary From" placeholder="From"
